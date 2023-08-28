@@ -1,7 +1,12 @@
 import type { NextPage } from "next";
+import Header from "../components/Header";
 
 const Home: NextPage = () => {
-  return <div className="text-3xl text-sky-600">مرحبا بالعالم</div>;
+  return (
+    <>
+      <Header label="Home" />
+    </>
+  );
 };
 
 export default Home;
