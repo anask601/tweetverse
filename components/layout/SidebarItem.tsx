@@ -9,6 +9,7 @@ interface SidebarItemProps {
   icon: IconType;
   href?: string;
   onClick?: () => void;
+  auth?: boolean;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
@@ -16,6 +17,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   icon: Icon,
   href,
   onClick,
+  auth,
 }) => {
   const router = useRouter();
   const loginModal = useLoginModal();
@@ -27,7 +29,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       return onClick();
     }
 
-    if (!currentUser) {
+    if (auth && !currentUser) {
       loginModal.onOpen();
     } else if (href) {
       router.push(href);
