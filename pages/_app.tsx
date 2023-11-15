@@ -8,17 +8,15 @@ import { SessionProvider } from "next-auth/react";
 import EditModal from "../components/modals/EditModal";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <SessionProvider session={pageProps.session}>
-        <Toaster />
-        <RegisterModal />
-        <LoginModal />
-        <EditModal />
-        <Layout>
-          <Component {...pageProps} />;
-        </Layout>
-      </SessionProvider>
-    </>
+    <SessionProvider session={pageProps.session}>
+      <Toaster />
+      <RegisterModal />
+      <LoginModal />
+      <EditModal />
+      <Layout>
+        <Component {...pageProps} />;
+      </Layout>
+    </SessionProvider>
   );
 }
 
